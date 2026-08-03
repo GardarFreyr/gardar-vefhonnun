@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Garðar. — Heimasíður fyrir fyrirtæki</title>
-  <meta name="description" content="Garðar hannar og smíðar einfaldar, fallegar heimasíður fyrir fyrirtæki í Garðabæ og nágrenni. Tilbúnar á viku, 50.000–85.000 kr fast verð.">
+  <meta name="description" content="Garðar hannar og smíðar einfaldar, fallegar heimasíður fyrir fyrirtæki í Garðabæ og nágrenni. Tilbúnar á viku, verð frá 89.000 kr.">
   <meta name="theme-color" content="#F2F1EF">
   <meta property="og:title" content="Garðar. — Heimasíður fyrir fyrirtæki">
-  <meta property="og:description" content="Garðar hannar og smíðar einfaldar, fallegar heimasíður fyrir fyrirtæki í Garðabæ og nágrenni. Tilbúnar á viku, 50.000–85.000 kr fast verð.">
+  <meta property="og:description" content="Garðar hannar og smíðar einfaldar, fallegar heimasíður fyrir fyrirtæki í Garðabæ og nágrenni. Tilbúnar á viku, verð frá 89.000 kr.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="is_IS">
   <meta property="og:image" content="https://gardars.netlify.app/myndir/og-mynd.png">
@@ -706,14 +706,25 @@ img {
 
 .price-card + .price-card {
   margin-top: 24px;
+}
+
+/* Viðhald stendur til hliðar við smíðaþrepin */
+.price-card.aside {
+  margin-top: 44px;
   max-width: 520px;
 }
 
 @media (min-width: 880px) {
-  .price-card + .price-card {
+  .price-card.aside {
     margin-left: auto;
     margin-right: 0;
   }
+}
+
+.price-qual {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .price-tag {
@@ -1114,8 +1125,8 @@ body.has-sticky-cta {
           <div class="stat-label">frá pöntun að birtingu</div>
         </div>
         <div class="stat">
-          <div class="stat-number">50–85.000 kr</div>
-          <div class="stat-label">fast verð, engin mánaðargjöld</div>
+          <div class="stat-number">frá 89.000 kr</div>
+          <div class="stat-label">fast tilboð, engin mánaðargjöld</div>
         </div>
       </div>
     </section>
@@ -1199,7 +1210,7 @@ body.has-sticky-cta {
   </footer>
 
   <div class="sticky-cta">
-    <a class="btn" href="samband.html">Fá tilboð — 50–85.000 kr</a>
+    <a class="btn" href="samband.html">Fá tilboð — frá 89.000 kr</a>
   </div>
 
   <script>

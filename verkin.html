@@ -706,14 +706,25 @@ img {
 
 .price-card + .price-card {
   margin-top: 24px;
+}
+
+/* Viðhald stendur til hliðar við smíðaþrepin */
+.price-card.aside {
+  margin-top: 44px;
   max-width: 520px;
 }
 
 @media (min-width: 880px) {
-  .price-card + .price-card {
+  .price-card.aside {
     margin-left: auto;
     margin-right: 0;
   }
+}
+
+.price-qual {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .price-tag {
@@ -1182,7 +1193,7 @@ body.has-sticky-cta {
     <section class="cta-band">
       <div class="container reveal">
         <h2>Vantar fyrirtækið þitt svona síðu?</h2>
-        <p>Tilbúin á viku — 50.000–85.000 kr fast verð.</p>
+        <p>Tilbúin á viku — verð frá 89.000 kr.</p>
         <a class="btn" href="samband.html">Fá tilboð</a>
       </div>
     </section>
@@ -1198,7 +1209,7 @@ body.has-sticky-cta {
   </footer>
 
   <div class="sticky-cta">
-    <a class="btn" href="samband.html">Fá tilboð — 50–85.000 kr</a>
+    <a class="btn" href="samband.html">Fá tilboð — frá 89.000 kr</a>
   </div>
 
   <script>

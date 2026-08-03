@@ -707,14 +707,25 @@ img {
 
 .price-card + .price-card {
   margin-top: 24px;
+}
+
+/* Viðhald stendur til hliðar við smíðaþrepin */
+.price-card.aside {
+  margin-top: 44px;
   max-width: 520px;
 }
 
 @media (min-width: 880px) {
-  .price-card + .price-card {
+  .price-card.aside {
     margin-left: auto;
     margin-right: 0;
   }
+}
+
+.price-qual {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .price-tag {
