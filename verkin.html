@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Verkin mín — Garðar.</title>
-  <meta name="description" content="Verkefni og sýnishorn eftir Garðar — heimasíður fyrir hárstofur, nuddstofur, naglastofur og fleiri fyrirtæki.">
+  <meta name="description" content="Verkefni og sýnishorn eftir Garðar — meðal annars Anastasia Beauty Studio, ásamt sýnishornum fyrir hárstofur, nuddstofur og fleiri.">
   <meta name="theme-color" content="#F2F1EF">
   <meta property="og:title" content="Verkin mín — Garðar.">
-  <meta property="og:description" content="Verkefni og sýnishorn eftir Garðar — heimasíður fyrir hárstofur, nuddstofur, naglastofur og fleiri fyrirtæki.">
+  <meta property="og:description" content="Verkefni og sýnishorn eftir Garðar — meðal annars Anastasia Beauty Studio, ásamt sýnishornum fyrir hárstofur, nuddstofur og fleiri.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="is_IS">
   <meta property="og:image" content="https://gardars.netlify.app/myndir/og-mynd.png">
@@ -597,6 +597,46 @@ img {
   max-width: 62ch;
 }
 
+/* ---------- Undirkaflar innan síðu ---------- */
+
+.sub-head.tight {
+  margin-top: 0;
+}
+
+.sub-lead {
+  max-width: 620px;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+.cs-card .included {
+  margin-bottom: 26px;
+}
+
+/* ---------- Umsögn viðskiptavinar ---------- */
+
+.quote {
+  max-width: 620px;
+  margin-top: 32px;
+  padding-left: 22px;
+  border-left: 2px solid var(--ink);
+}
+
+.quote p {
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.quote .quote-by {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
 /* ---------- Flat editorial columns (hvað ég geri) ---------- */
 
 .card-grid {
@@ -1110,20 +1150,41 @@ body.has-sticky-cta {
       <h1 class="section-title rise" style="--i: 1;">Verkefni og sýnishorn</h1>
       <p class="section-intro rise" style="--i: 2;">Hvert verkefni fær sinn eigin stíl.</p>
 
-      <!-- Aðal sýnishorn -->
-      <article class="cs-card featured reveal" id="apex" style="--accent-c: #2D9CDB;">
+      <h2 class="sub-head tight reveal">Verkefni</h2>
+      <p class="sub-lead reveal">Síður sem eru í loftinu fyrir borgandi viðskiptavini.</p>
+
+      <article class="cs-card featured reveal" id="anastasia" style="--accent-c: #8C6A46;">
         <div class="featured-grid">
           <div>
-            <span class="cs-badge">Aðalsýnishorn</span>
+            <span class="cs-badge">Viðskiptavinur · í loftinu</span>
             <div class="cs-head">
-              <h2>Apex Detailing</h2>
+              <h2>Anastasia Beauty Studio</h2>
             </div>
-            <p class="cs-note">Flaggskipssýnishorn — heilsíða fyrir bíla-detailing með bókun, þjónustulista og umsögnum.</p>
-            <a class="cs-link" href="https://apex-detailin.netlify.app" target="_blank" rel="noopener">Skoða síðuna <span class="arrow-ne">↗</span></a>
+            <p class="cs-note">Snyrti- og húðmeðferðarstofa á höfuðborgarsvæðinu. Tvítyngd síða með fullri meðferðaskrá og bókun beint í Noona.</p>
+            <ul class="included">
+              <li>Tvítyngd síða, íslenska og enska</li>
+              <li>57 meðferðir með lýsingum og verði</li>
+              <li>Myndasafn úr stofunni</li>
+              <li>Gjafabréf</li>
+              <li>„Finndu okkur“ — leiðarlýsing að stofunni</li>
+              <li>Bókun tengd við Noona</li>
+            </ul>
+            <a class="cs-link" href="https://anastasiabeautystudio.is" target="_blank" rel="noopener">anastasiabeautystudio.is <span class="arrow-ne">↗</span></a>
           </div>
-          <img class="featured-shot" src="myndir/apex.jpg" alt="Skjáskot af heimasíðu Apex Detailing" width="1200" height="1200" loading="lazy">
+          <img class="featured-shot" src="myndir/anastasia.jpg" alt="Skjáskot af heimasíðu Anastasia Beauty Studio" width="1200" height="1200" loading="lazy">
         </div>
+
+        <!-- UMSÖGN FRÁ ANASTASIU: taktu comment-merkin af blokkinni hér fyrir neðan og settu hennar eigin orð í stað punktanna. -->
+        <!--
+        <blockquote class="quote">
+          <p>„…“</p>
+          <span class="quote-by">Anastasia · Anastasia Beauty Studio</span>
+        </blockquote>
+        -->
       </article>
+
+      <h2 class="sub-head reveal">Sýnishorn</h2>
+      <p class="sub-lead reveal">Sýnishorn sem ég hannaði og smíðaði sjálfur til að sýna hvað er hægt — ekki greidd verkefni.</p>
 
       <div class="work-list">
 
@@ -1184,6 +1245,16 @@ body.has-sticky-cta {
             <span class="work-name">Jenný Lashes &amp; Brows</span>
           </span>
           <img class="work-thumb" src="myndir/jenny.jpg" alt="Skjáskot af heimasíðu Jenný Lashes & Brows" width="1200" height="1200" loading="lazy">
+          <span class="work-open">Skoða síðuna <span class="arrow-ne">↗</span></span>
+        </a>
+
+        <a class="work-row reveal" id="apex" href="https://apex-detailin.netlify.app" target="_blank" rel="noopener" style="--accent-c: #2D9CDB;">
+          <span class="work-num">07</span>
+          <span class="work-chip" aria-hidden="true"></span>
+          <span class="work-main">
+            <span class="work-name">Apex Detailing</span>
+          </span>
+          <img class="work-thumb" src="myndir/apex.jpg" alt="Skjáskot af heimasíðu Apex Detailing" width="1200" height="1200" loading="lazy">
           <span class="work-open">Skoða síðuna <span class="arrow-ne">↗</span></span>
         </a>
 
