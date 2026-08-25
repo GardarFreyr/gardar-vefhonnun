@@ -1173,6 +1173,23 @@ body.has-sticky-cta {
   var d = document;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Vanti mynd birtist enginn brotinn rammi — hún er einfaldlega fjarlægð
+     og myndadálkurinn lokast ef um aðalspjald er að ræða. */
+  var dropImage = function (img) {
+    var grid = img.closest(".featured-grid");
+    if (grid) grid.style.gridTemplateColumns = "1fr";
+    img.remove();
+  };
+  d.querySelectorAll("img").forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) {
+      dropImage(img);
+    } else {
+      img.addEventListener("error", function () {
+        dropImage(img);
+      });
+    }
+  });
+
   /* Mobile nav toggle (+ Escape to close) */
   var header = d.querySelector(".site-header");
   var toggle = d.querySelector(".nav-toggle");
