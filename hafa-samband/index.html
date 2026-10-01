@@ -295,7 +295,7 @@ h1, h2, h3, h4 {
 .hero { padding-block: clamp(46px, 6vw, 88px) clamp(38px, 4.5vw, 62px); }
 .hero .avail { margin-bottom: clamp(20px, 2.4vw, 28px); }
 .hero .lede { margin-top: clamp(20px, 2.4vw, 28px); }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(28px, 3.4vw, 38px); }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px 16px; margin-top: clamp(28px, 3.4vw, 38px); }
 @media (max-width: 539px) { .hero-cta .btn { flex: 1 1 100%; } }
 
 /* Facts, thin editorial rules */
@@ -555,7 +555,7 @@ h1, h2, h3, h4 {
 .hero-grid { display: grid; gap: clamp(40px, 5vw, 56px); align-items: center; }
 .hero-copy .t-xl { margin-top: 16px; font-size: clamp(2.16rem, 5.8vw, 4.37rem); line-height: 0.92; }
 .hero-copy .lede { margin-top: clamp(13px, 1.4vw, 18px); max-width: 32rem; }
-.hero-copy .hero-cta { margin-top: clamp(18px, 2vw, 24px); }
+.hero-copy .hero-cta { margin-top: clamp(22px, 2.6vw, 30px); }
 
 .bullets { display: grid; gap: 16px; margin-top: clamp(18px, 2vw, 24px); padding-top: clamp(14px, 1.5vw, 18px); border-top: 1px solid var(--rule); }
 .bullets .n { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; color: var(--accent-deep); display: block; }
@@ -579,21 +579,12 @@ h1, h2, h3, h4 {
   }
   .hero-grid > .hero-copy { grid-area: 1 / 1; }
   .hero-grid > .bullets { grid-area: 2 / 1; margin-top: 0; }
-  .hero-grid > .hero-stage { grid-area: 1 / 2 / 3 / 3; align-self: center; }
+  .hero-grid > .hero-stage { grid-area: 1 / 2 / 3 / 3; align-self: center; margin-top: -26px; }
 }
 
 /* ---------- Devices ---------- */
 
 .hero-stage { position: relative; }
-.hero-stage::before {
-  content: ""; position: absolute; z-index: 0;
-  inset: -6% -4% 6% 4%;
-  background: rgba(237, 228, 219, 0.035);
-  border: 1px solid rgba(237, 228, 219, 0.07);
-  border-radius: var(--r-lg);
-}
-.hero-stage > * { position: relative; z-index: 1; }
-@media (min-width: 980px) { .hero-stage::before { inset: -9% -6% 4% 3%; } }
 .devices { position: relative; width: 100%; max-width: 540px; margin-inline: auto; padding-bottom: 7%; transform-style: preserve-3d; perspective: 1500px; }
 @media (min-width: 980px) { .devices { max-width: none; margin-inline: 0; } }
 
@@ -619,8 +610,8 @@ h1, h2, h3, h4 {
 .lap-foot span { position: absolute; left: 50%; top: 0; width: 12%; height: 3px; transform: translateX(-50%); background: #8E887D; border-radius: 0 0 4px 4px; }
 
 .phone-dev {
-  position: absolute; right: 9%; bottom: 7.5%; z-index: 2;
-  width: 17.5%; max-width: 132px; min-width: 82px;
+  position: absolute; right: 12%; bottom: 5.5%; z-index: 2;
+  width: 15.7%; max-width: 118px; min-width: 76px;
   background: #090908; border: 1px solid #000; border-radius: 18px; padding: 4px;
   box-shadow: 0 0 0 1px rgba(11,11,11,0.07),
               -10px 16px 34px -16px rgba(11,11,11,0.5),
@@ -633,7 +624,7 @@ h1, h2, h3, h4 {
   content: ""; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
   width: 34%; height: 6px; background: #090908; border-radius: 0 0 5px 5px; z-index: 1;
 }
-@media (min-width: 980px) { .devices { width: 94%; margin-left: auto; padding-bottom: 7%; } .phone-dev { right: 7%; } }
+@media (min-width: 980px) { .devices { width: 94%; margin-left: auto; padding-bottom: 7%; } .phone-dev { right: 10%; } }
 
 /* entrance */
 @media (prefers-reduced-motion: no-preference) {
@@ -785,7 +776,7 @@ h1, h2, h3, h4 {
 .bullets .n { color: var(--accent); }
 .bullets .bt { color: var(--on-ink); }
 .bullets .bd { color: var(--on-ink-muted); }
-@media (min-width: 560px) { .bullets > div { border-left-color: rgba(237, 228, 219, 0.14); } }
+@media (min-width: 560px) { .bullets > div { border-left-color: rgba(237, 228, 219, 0.09); } }
 
 /* the device frames need a rim now that they sit on black */
 .hero-split .lap-screen { border-color: #2B2825; box-shadow: 0 0 0 1px rgba(237, 228, 219, 0.06), 0 14px 28px -20px rgba(0, 0, 0, 0.75); }
@@ -794,7 +785,7 @@ h1, h2, h3, h4 {
 .hero-split .lap-foot span { background: #4A453D; }
 
 /* ---- Work on warm beige ---- */
-.work-sec { background: var(--surface); border-top: 0; border-bottom: 1px solid var(--rule); }
+.work-sec { background: var(--surface); border-top: 0; border-bottom: 1px solid var(--rule); padding-top: clamp(44px, 5.4vw, 84px); }
 .work-sec .pcard-shot { background: var(--light); border-color: var(--rule); }
 
 /* ---- Services on dark ---- */
