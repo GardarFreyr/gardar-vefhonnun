@@ -289,12 +289,6 @@ h1, h2, h3, h4 {
 
 /* Facts, thin editorial rules */
 
-@media (min-width: 720px) {
-  .facts { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--rule-soft); }
-  .facts > div { padding: 22px 30px 26px; border-bottom: 0; border-left: 1px solid var(--rule-soft); }
-  .facts > div:first-child { padding-left: 0; border-left: 0; }
-}
-
 /* ---------- Screens ---------- */
 
 .screen { display: block; border: 1px solid var(--rule); border-radius: var(--r-lg); overflow: hidden; background: var(--light); }
@@ -313,8 +307,6 @@ h1, h2, h3, h4 {
 
 /* ---------- Featured work ---------- */
 
-.feature-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; margin-bottom: 14px; }
-.feature-foot { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 20px; }
 
 .chip {
   display: inline-block; font-family: var(--mono); font-size: 0.63rem; font-weight: 500;
@@ -335,12 +327,6 @@ h1, h2, h3, h4 {
 .dark .eyebrow-accent { color: #EE9584; }
 .dark .rule { background: var(--on-ink-rule); }
 
-
-@media (min-width: 820px) {
-  .steps { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--on-ink-rule); }
-  .steps > div { padding: 24px 28px 28px; border-bottom: 0; border-left: 1px solid var(--on-ink-rule); }
-  .steps > div:first-child { padding-left: 0; border-left: 0; }
-}
 
 /* ---------- Portfolio grid ---------- */
 
