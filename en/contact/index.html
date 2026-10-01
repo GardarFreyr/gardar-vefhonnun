@@ -77,6 +77,7 @@
   --light: #FAF7F3;
   --ink: #0B0B0B;
   --ink-2: #151513;
+  --ink-hero: #11110F;
   --ink-soft: #24241F;
   --muted: #5D554E;
   --muted-2: #6D635B;
@@ -550,13 +551,13 @@ h1, h2, h3, h4 {
 
 /* ---------- Hero ---------- */
 
-.hero-split { padding-block: clamp(30px, 4vw, 54px) clamp(20px, 2.4vw, 34px); overflow: hidden; }
+.hero-split { padding-block: clamp(26px, 3.2vw, 44px) clamp(22px, 2.6vw, 38px); overflow: hidden; }
 .hero-grid { display: grid; gap: clamp(40px, 5vw, 56px); align-items: center; }
-.hero-copy .t-xl { margin-top: 18px; font-size: clamp(2.35rem, 6.3vw, 4.75rem); }
-.hero-copy .lede { margin-top: clamp(14px, 1.6vw, 20px); max-width: 33rem; }
-.hero-copy .hero-cta { margin-top: clamp(20px, 2.2vw, 27px); }
+.hero-copy .t-xl { margin-top: 16px; font-size: clamp(2.16rem, 5.8vw, 4.37rem); line-height: 0.92; }
+.hero-copy .lede { margin-top: clamp(13px, 1.4vw, 18px); max-width: 32rem; }
+.hero-copy .hero-cta { margin-top: clamp(18px, 2vw, 24px); }
 
-.bullets { display: grid; gap: 18px; margin-top: clamp(22px, 2.6vw, 30px); padding-top: clamp(16px, 1.8vw, 21px); border-top: 1px solid var(--rule); }
+.bullets { display: grid; gap: 16px; margin-top: clamp(18px, 2vw, 24px); padding-top: clamp(14px, 1.5vw, 18px); border-top: 1px solid var(--rule); }
 .bullets .n { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; color: var(--accent-deep); display: block; }
 .bullets .bt { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.025em; margin-top: 9px; }
 .bullets .bd { color: var(--muted-2); font-size: 0.88rem; line-height: 1.5; margin-top: 5px; }
@@ -573,7 +574,7 @@ h1, h2, h3, h4 {
   .hero-grid {
     grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
     grid-template-rows: auto auto;
-    gap: clamp(18px, 2vw, 26px) clamp(26px, 2.4vw, 42px);
+    gap: clamp(14px, 1.6vw, 20px) clamp(26px, 2.4vw, 42px);
     align-items: start;
   }
   .hero-grid > .hero-copy { grid-area: 1 / 1; }
@@ -584,6 +585,15 @@ h1, h2, h3, h4 {
 /* ---------- Devices ---------- */
 
 .hero-stage { position: relative; }
+.hero-stage::before {
+  content: ""; position: absolute; z-index: 0;
+  inset: -6% -4% 6% 4%;
+  background: rgba(237, 228, 219, 0.035);
+  border: 1px solid rgba(237, 228, 219, 0.07);
+  border-radius: var(--r-lg);
+}
+.hero-stage > * { position: relative; z-index: 1; }
+@media (min-width: 980px) { .hero-stage::before { inset: -9% -6% 4% 3%; } }
 .devices { position: relative; width: 100%; max-width: 540px; margin-inline: auto; padding-bottom: 7%; transform-style: preserve-3d; perspective: 1500px; }
 @media (min-width: 980px) { .devices { max-width: none; margin-inline: 0; } }
 
@@ -609,8 +619,8 @@ h1, h2, h3, h4 {
 .lap-foot span { position: absolute; left: 50%; top: 0; width: 12%; height: 3px; transform: translateX(-50%); background: #8E887D; border-radius: 0 0 4px 4px; }
 
 .phone-dev {
-  position: absolute; right: 3%; bottom: -3%; z-index: 2;
-  width: 21%; max-width: 160px; min-width: 94px;
+  position: absolute; right: 9%; bottom: 7.5%; z-index: 2;
+  width: 17.5%; max-width: 132px; min-width: 82px;
   background: #090908; border: 1px solid #000; border-radius: 18px; padding: 4px;
   box-shadow: 0 0 0 1px rgba(11,11,11,0.07),
               -10px 16px 34px -16px rgba(11,11,11,0.5),
@@ -623,7 +633,7 @@ h1, h2, h3, h4 {
   content: ""; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
   width: 34%; height: 6px; background: #090908; border-radius: 0 0 5px 5px; z-index: 1;
 }
-@media (min-width: 980px) { .devices { padding-bottom: 9%; } .phone-dev { right: 1%; } }
+@media (min-width: 980px) { .devices { width: 94%; margin-left: auto; padding-bottom: 7%; } .phone-dev { right: 7%; } }
 
 /* entrance */
 @media (prefers-reduced-motion: no-preference) {
@@ -734,8 +744,8 @@ h1, h2, h3, h4 {
 /* The hero block carries the header with it, so the bar reads as part of the
    dark panel instead of a light strip pasted on top. Other pages keep the
    light header, which is why this is scoped to .home rather than .hdr. */
-.home .hdr { background: var(--ink); border-bottom-color: rgba(237, 228, 219, 0.1); }
-.home .hdr.stuck { background: rgba(11, 11, 11, 0.94); border-bottom-color: rgba(237, 228, 219, 0.14); }
+.home .hdr { background: var(--ink-hero); border-bottom-color: rgba(237, 228, 219, 0.08); }
+.home .hdr.stuck { background: rgba(17, 17, 15, 0.94); border-bottom-color: rgba(237, 228, 219, 0.14); }
 .home .brand { color: var(--on-ink); }
 .home .nav a { color: var(--on-ink-muted); }
 .home .nav a[aria-current="page"], .home .nav a:hover { color: var(--on-ink); }
@@ -745,7 +755,7 @@ h1, h2, h3, h4 {
 .home .lang span { color: rgba(237, 228, 219, 0.3); }
 .home .hdr-cta { background: var(--on-ink); color: var(--ink); border-color: var(--on-ink); }
 .home .burger span { background: var(--on-ink); }
-.home .drawer { background: var(--ink); border-top-color: rgba(237, 228, 219, 0.12); }
+.home .drawer { background: var(--ink-hero); border-top-color: rgba(237, 228, 219, 0.12); }
 .home .drawer a { color: var(--on-ink); }
 .home .drawer li + li { border-top-color: rgba(237, 228, 219, 0.12); }
 .home .drawer .btn { background: var(--on-ink); color: var(--ink); border-color: var(--on-ink); }
@@ -756,7 +766,10 @@ h1, h2, h3, h4 {
 }
 
 /* ---- Hero on dark ---- */
-.hero-split { background: var(--ink); color: var(--on-ink); }
+.hero-split {
+  background: var(--ink-hero); color: var(--on-ink);
+  box-shadow: inset 0 -1px 0 rgba(237, 228, 219, 0.08);
+}
 .hero-split .eyebrow { color: var(--on-ink-muted); }
 .hero-split .t-xl { color: var(--on-ink); }
 .hero-split .lede { color: var(--on-ink-muted); }
@@ -775,13 +788,13 @@ h1, h2, h3, h4 {
 @media (min-width: 560px) { .bullets > div { border-left-color: rgba(237, 228, 219, 0.14); } }
 
 /* the device frames need a rim now that they sit on black */
-.hero-split .lap-screen { border-color: #2E2B27; box-shadow: 0 0 0 1px rgba(237, 228, 219, 0.07), 0 30px 60px -34px rgba(0, 0, 0, 0.9); }
-.hero-split .phone-dev { border-color: #2E2B27; box-shadow: 0 0 0 1px rgba(237, 228, 219, 0.09), -12px 18px 38px -18px rgba(0, 0, 0, 0.8), 0 30px 54px -32px rgba(0, 0, 0, 0.85); }
-.hero-split .lap-foot { background: linear-gradient(#3A3630, #211F1B); box-shadow: 0 12px 24px -16px rgba(0, 0, 0, 0.9); }
+.hero-split .lap-screen { border-color: #2B2825; box-shadow: 0 0 0 1px rgba(237, 228, 219, 0.06), 0 14px 28px -20px rgba(0, 0, 0, 0.75); }
+.hero-split .phone-dev { border-color: #2B2825; box-shadow: 0 0 0 1px rgba(237, 228, 219, 0.08), -8px 10px 22px -14px rgba(0, 0, 0, 0.7); }
+.hero-split .lap-foot { background: linear-gradient(#36322C, #1F1D1A); box-shadow: 0 8px 16px -12px rgba(0, 0, 0, 0.8); }
 .hero-split .lap-foot span { background: #4A453D; }
 
 /* ---- Work on warm beige ---- */
-.work-sec { background: var(--surface); border-block: 1px solid var(--rule); }
+.work-sec { background: var(--surface); border-top: 0; border-bottom: 1px solid var(--rule); }
 .work-sec .pcard-shot { background: var(--light); border-color: var(--rule); }
 
 /* ---- Services on dark ---- */
