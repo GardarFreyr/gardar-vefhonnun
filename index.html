@@ -585,7 +585,7 @@ h1, h2, h3, h4 {
 /* ---------- Devices ---------- */
 
 .hero-stage { position: relative; }
-.devices { position: relative; width: 100%; max-width: 540px; margin-inline: auto; padding-bottom: 7%; transform-style: flat; perspective: 900px; }
+.devices { position: relative; width: 100%; max-width: 540px; margin-inline: auto; padding-bottom: 7%; transform-style: flat; perspective: 1150px; }
 .devices::after {
   content: ""; position: absolute; z-index: 0; left: 6%; right: 3%; bottom: 1.5%; height: 22px;
   background: radial-gradient(60% 50% at 50% 0%, rgba(0,0,0,0.5), rgba(0,0,0,0) 72%);
@@ -595,7 +595,7 @@ h1, h2, h3, h4 {
 
 .laptop {
   position: relative; z-index: 1; width: 100%;
-  transform: rotateY(9deg) rotateX(3.5deg);
+  transform: rotateY(4deg) rotateX(2deg);
   transform-origin: 62% 70%;
   will-change: transform;
 }
@@ -629,10 +629,10 @@ h1, h2, h3, h4 {
 .lap-foot span { position: absolute; left: 50%; top: 0; width: 12%; height: 3px; transform: translateX(-50%); background: #8E887D; border-radius: 0 0 4px 4px; }
 
 .phone-dev {
-  position: absolute; right: 12%; bottom: 5.5%; z-index: 2;
-  width: 15.7%; max-width: 118px; min-width: 76px;
+  position: absolute; right: 4%; bottom: 6.5%; z-index: 2;
+  width: 21.5%; max-width: 158px; min-width: 68px;
   background: #090908; border: 1px solid #000; border-radius: 18px; padding: 4px;
-  transform: rotateY(-15deg) rotateX(2deg) rotate(0.7deg);
+  transform: rotateY(-7deg) rotateX(1.2deg) rotate(0.7deg);
   transform-origin: 20% 60%;
   box-shadow:
     inset 0 1px 0 rgba(237, 228, 219, 0.18),
@@ -653,7 +653,13 @@ h1, h2, h3, h4 {
   content: ""; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
   width: 34%; height: 6px; background: #090908; border-radius: 0 0 5px 5px; z-index: 1;
 }
-@media (min-width: 980px) { .devices { width: 94%; margin-left: auto; padding-bottom: 7%; } .phone-dev { right: 10%; } }
+@media (min-width: 980px) {
+  .devices { width: 94%; margin-left: auto; padding-bottom: 7%; }
+  .laptop { width: 87%; }
+  /* rotateY makes the painted box wider than the layout box, so the phone needs
+     a small inset or its near edge is clipped by the section between 980 and 1280 */
+  .phone-dev { right: 3.5%; }
+}
 
 /* entrance */
 @media (prefers-reduced-motion: no-preference) {
@@ -661,16 +667,16 @@ h1, h2, h3, h4 {
   .phone-dev { animation: ph-in 900ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both; }
 }
 @keyframes lap-in {
-  from { opacity: 0; transform: translateY(28px) rotateY(16deg) rotateX(5deg) scale(0.98); }
-  to   { opacity: 1; transform: translateY(0) rotateY(9deg) rotateX(3.5deg) scale(1); }
+  from { opacity: 0; transform: translateY(26px) rotateY(8deg) rotateX(3deg) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) rotateY(4deg) rotateX(2deg) scale(1); }
 }
 @keyframes ph-in {
-  from { opacity: 0; transform: translate3d(25px, 15px, 1px) rotateY(-24deg) rotate(3deg) scale(0.96); }
-  to   { opacity: 1; transform: translate3d(0, 0, 1px) rotateY(-15deg) rotateX(2deg) rotate(0.7deg) scale(1); }
+  from { opacity: 0; transform: translate3d(25px, 15px, 1px) rotateY(-13deg) rotate(3deg) scale(0.96); }
+  to   { opacity: 1; transform: translate3d(0, 0, 1px) rotateY(-7deg) rotateX(1.2deg) rotate(0.7deg) scale(1); }
 }
 /* pointer tilt and scroll drift, applied by script on top of the resting transform */
-.devices.tilt .laptop { transform: translateY(var(--ly, 0px)) rotateX(calc(3.5deg + var(--rx, 0deg))) rotateY(calc(9deg + var(--ry, 0deg))); animation: none; opacity: 1; }
-.devices.tilt .phone-dev { transform: translate3d(0, var(--py, 0px), 1px) rotateY(calc(-15deg - var(--ry, 0deg) * 0.5)) rotateX(2deg) rotate(calc(0.7deg + var(--ry, 0deg) * 0.3)); animation: none; opacity: 1; }
+.devices.tilt .laptop { transform: translateY(var(--ly, 0px)) rotateX(calc(2deg + var(--rx, 0deg))) rotateY(calc(4deg + var(--ry, 0deg))); animation: none; opacity: 1; }
+.devices.tilt .phone-dev { transform: translate3d(0, var(--py, 0px), 1px) rotateY(calc(-7deg - var(--ry, 0deg) * 0.5)) rotateX(1.2deg) rotate(calc(0.7deg + var(--ry, 0deg) * 0.3)); animation: none; opacity: 1; }
 
 /* ---------- Project cards ---------- */
 
@@ -720,15 +726,16 @@ h1, h2, h3, h4 {
 @media (min-width: 860px) { .svc-head { grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 80px); align-items: end; } }
 
 .svc-grid { display: grid; gap: 0; border-top: 1px solid var(--rule); }
-.svc-item { padding: 26px 0; border-bottom: 1px solid var(--rule-soft); }
-.svc-item .n { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; color: var(--muted-2); display: block; }
-.svc-icon { width: 30px; height: 30px; display: block; margin: 20px 0 18px; color: var(--ink); stroke-width: 1.2; }
-.svc-item h3 { font-family: var(--display); font-weight: 700; font-size: 1.04rem; letter-spacing: -0.025em; }
-.svc-item p { color: var(--muted); font-size: 0.92rem; line-height: 1.55; margin-top: 7px; max-width: 24rem; }
+.svc-item { padding: 26px 0; border-bottom: 1px solid var(--rule-soft); display: flex; gap: 16px; align-items: flex-start; }
+.svc-body { min-width: 0; }
+.svc-item .n { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.15em; color: var(--muted-2); display: block; }
+.svc-icon { width: 26px; height: 26px; flex: none; display: block; margin-top: 1px; color: var(--ink); stroke-width: 1.2; }
+.svc-item h3 { font-family: var(--display); font-weight: 700; font-size: 1.04rem; letter-spacing: -0.025em; margin-top: 6px; }
+.svc-item p { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin-top: 6px; max-width: 22rem; }
 @media (min-width: 680px) { .svc-grid { grid-template-columns: repeat(2, 1fr); column-gap: clamp(26px, 3vw, 44px); } }
 @media (min-width: 1000px) {
   .svc-grid { grid-template-columns: repeat(4, 1fr); column-gap: 0; border-bottom: 1px solid var(--rule-soft); }
-  .svc-item { padding: 30px clamp(20px, 2.2vw, 34px); border-bottom: 0; border-left: 1px solid var(--rule-soft); }
+  .svc-item { padding: 30px clamp(18px, 2vw, 30px); border-bottom: 0; border-left: 1px solid var(--rule-soft); }
   .svc-item:first-child { padding-left: 0; border-left: 0; }
   .svc-item:last-child { padding-right: 0; }
 }
@@ -818,7 +825,7 @@ h1, h2, h3, h4 {
 .work-sec .pcard-shot { background: var(--light); border-color: var(--rule); }
 
 /* ---- Services on dark ---- */
-.svc { background: var(--ink-2); border-block: 0; color: var(--on-ink); }
+.svc { background: var(--ink-soft-bg, #171714); border-block: 0; color: var(--on-ink); }
 .svc .eyebrow { color: var(--on-ink-muted); }
 .svc .t-md, .svc h3 { color: var(--on-ink); }
 .svc .lede { color: var(--on-ink-muted); }
@@ -991,28 +998,36 @@ h1, h2, h3, h4 {
       </div>
       <div class="svc-grid" data-rv>
           <div class="svc-item">
-            <span class="n">01</span>
             <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="13" rx="1.5"/><path d="M8 20.5h8M12 16.5v4"/></svg>
-            <h3>Hönnun</h3>
-            <p>Sérsniðið útlit sem endurspeglar þitt vörumerki.</p>
+            <div class="svc-body">
+              <span class="n">01</span>
+              <h3>Hönnun</h3>
+              <p>Sérsniðið útlit sem endurspeglar þitt fyrirtæki.</p>
+            </div>
           </div>
           <div class="svc-item">
-            <span class="n">02</span>
             <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.6 6.4 2.8 12l5.8 5.6M15.4 6.4 21.2 12l-5.8 5.6M13.4 4.2l-2.8 15.6"/></svg>
-            <h3>Uppsetning</h3>
-            <p>Hröð og örugg síða sem virkar í öllum tækjum.</p>
+            <div class="svc-body">
+              <span class="n">02</span>
+              <h3>Uppsetning</h3>
+              <p>Nútímaleg og hraðvirk vefsíða í traustu umhverfi.</p>
+            </div>
           </div>
           <div class="svc-item">
-            <span class="n">03</span>
-            <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V13M9.3 20V8M14.7 20v-5M20 20V4"/></svg>
-            <h3>Leitarvélar</h3>
-            <p>Rétt grunnuppsetning fyrir leitarvélar frá fyrsta degi.</p>
+            <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6 20.5v-5.5M11 20.5V9M16 20.5v-3.4M21 20.5V4.5"/></svg>
+            <div class="svc-body">
+              <span class="n">03</span>
+              <h3>Sýnileiki</h3>
+              <p>Vefsíða sem hjálpar þér að ná til fleiri viðskiptavina.</p>
+            </div>
           </div>
           <div class="svc-item">
-            <span class="n">04</span>
-            <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3 5.5 5.5"/></svg>
-            <h3>Stuðningur</h3>
-            <p>Áframhaldandi aðstoð og uppfærslur eftir að síðan fer í loftið.</p>
+            <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><path d="M4 14.5h1.6a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1.5 1.5 0 0 1-1.5-1.5v-2A1.5 1.5 0 0 1 4 14.5zM20 14.5h-1.6a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1H20a1.5 1.5 0 0 0 1.5-1.5v-2a1.5 1.5 0 0 0-1.5-1.5z"/><path d="M17.4 19.5v.6a2 2 0 0 1-2 2H13"/></svg>
+            <div class="svc-body">
+              <span class="n">04</span>
+              <h3>Stuðningur</h3>
+              <p>Ég er með þér áfram og aðstoða þegar þú þarft.</p>
+            </div>
           </div>
       </div>
     </div>
