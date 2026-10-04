@@ -67,15 +67,15 @@
    Two tones of the accent and of the neutral, because each clears 4.5:1 on
    only one side:
      --accent      #6F8987  4.94 on #121411   (dark bands, dots, fills)
-     --accent-deep #586C6B  4.62 on glacier   (text on light)
-     --muted #676A65 4.55, --muted-2 #646762 4.70 on glacier, the worst light tone
+     --accent-deep #586C6B  4.68 on glacier   (text on light)
+     --muted #676A65 4.61, --muted-2 #646762 4.76 on glacier, the worst light tone
      --on-ink-muted #9A9D97 6.74 on the dark band
    ========================================================== */
 
 :root {
   --bg: #F2F1EC;          /* hero, page default */
   --light: #FAF9F6;       /* projects band */
-  --glacier: #E6EBE9;     /* closing CTA */
+  --glacier: #E9ECE9;     /* closing CTA */
   --surface: #EDECE7;     /* image wells, browser chrome */
   --text: #151713;        /* primary type */
   --ink: #121411;         /* services and footer */
@@ -809,7 +809,7 @@ h1, h2, h3, h4 {
 .cta-steps ol { list-style: none; display: grid; }
 .cta-steps li {
   display: grid; grid-template-columns: 34px 1fr; align-items: baseline; gap: 14px;
-  padding: clamp(15px, 1.7vw, 20px) 0; border-top: 1px solid var(--on-ink-rule);
+  padding: clamp(15px, 1.7vw, 20px) 0; border-top: 1px solid rgba(242, 241, 236, 0.1);
 }
 .cta-steps li:first-child { border-top: 0; padding-top: 0; }
 .cta-steps li:last-child { padding-bottom: 0; }
@@ -821,7 +821,7 @@ h1, h2, h3, h4 {
 }
 
 /* ---- Work on warm beige ---- */
-.work-sec { background: var(--light); border-top: 1px solid var(--rule); border-bottom: 0; padding-top: clamp(32px, 3.2vw, 50px); }
+.work-sec { background: var(--light); border-top: 1px solid var(--rule); border-bottom: 0; padding-top: clamp(32px, 3.2vw, 50px); padding-bottom: clamp(44px, 4.2vw, 62px); }
 .work-sec .pcard-shot { background: var(--surface); border-color: var(--rule); }
 
 /* ---- Services on dark ---- */
