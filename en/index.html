@@ -95,6 +95,7 @@
   --body: "Inter", system-ui, sans-serif;
   --mono: "IBM Plex Mono", monospace;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-scroll: cubic-bezier(0.4, 0, 0.3, 1);
   --w: 1280px;
   --w-text: 68ch;
   --pad: 28px;
@@ -627,11 +628,12 @@ h1, h2, h3, h4 {
   content: ""; position: absolute; left: -3px; top: 6px; bottom: 0; width: 3px;
   background: #16150F; border-radius: 3px 0 0 1px;
 }
-.lap-screen picture, .lap-screen img {
-  display: block; width: 100%; height: auto; aspect-ratio: 16 / 10;
-  object-fit: cover; object-position: top center;
-  border-radius: 3px 3px 0 0;
+.lap-screen picture {
+  display: block; width: 100%; aspect-ratio: 16 / 10;
+  overflow: hidden; border-radius: 3px 3px 0 0;
+  background: #EFE9E2;
 }
+.lap-screen img { display: block; width: 100%; height: auto; will-change: transform; }
 .lap-foot {
   position: relative; height: 13px; margin-inline: -1.5%;
   background: linear-gradient(#D5CFC5 0 2px, #BDB6AA 2px, #9B9488);
@@ -661,7 +663,8 @@ h1, h2, h3, h4 {
   background: #1C1A16; border-radius: 1px 0 0 1px;
 }
 .ph-screen { position: relative; overflow: hidden; border-radius: 14px; background: #EDE9E2; }
-.ph-screen picture, .ph-screen img { display: block; width: 100%; height: auto; aspect-ratio: 430 / 931; object-fit: cover; object-position: top center; }
+.ph-screen picture { display: block; width: 100%; aspect-ratio: 430 / 931; overflow: hidden; background: #EFE9E2; }
+.ph-screen img { display: block; width: 100%; height: auto; will-change: transform; }
 .ph-screen::before {
   content: ""; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
   width: 34%; height: 6px; background: #101010; border-radius: 0 0 5px 5px; z-index: 1;
@@ -670,6 +673,39 @@ h1, h2, h3, h4 {
   .devices { width: 94%; margin-left: auto; padding-bottom: 7%; }
   .laptop { width: 86%; }
   .phone-dev { right: 8%; }
+}
+
+/* ---------- The Anastasia page scrolling inside the screens ----------
+
+   The screen clips; the image moves. Travel is a share of the image's OWN
+   height, so it stays exact at every breakpoint and can never expose a gap:
+     laptop  1240x9906   screen 16/10    -> 92.185% measured, 92.10% used
+     phone    400x15625  screen 430/931  -> 94.454% measured, 94.38% used
+   Each stops a hair short so sub-pixel rounding cannot open a gap.
+   Both images happen to display at a similar total height, so one duration
+   gives both devices the same pixel speed, about 210px per second.
+
+   44s cycle: 2s top, 22s down, 2s bottom, 16s back, 2s top.               */
+
+@media (prefers-reduced-motion: no-preference) {
+  .lap-screen img { animation: scroll-lap 44s var(--ease-scroll) infinite; }
+  .ph-screen img  { animation: scroll-ph  44s var(--ease-scroll) 1s infinite; }
+  .laptop:hover .lap-screen img,
+  .phone-dev:hover .ph-screen img,
+  .devices.paused .lap-screen img,
+  .devices.paused .ph-screen img { animation-play-state: paused; }
+}
+@keyframes scroll-lap {
+  0%, 4.545%      { transform: translate3d(0, 0, 0); }
+  54.545%         { transform: translate3d(0, -92.10%, 0); }
+  59.091%         { transform: translate3d(0, -92.10%, 0); }
+  95.455%, 100%   { transform: translate3d(0, 0, 0); }
+}
+@keyframes scroll-ph {
+  0%, 4.545%      { transform: translate3d(0, 0, 0); }
+  54.545%         { transform: translate3d(0, -94.38%, 0); }
+  59.091%         { transform: translate3d(0, -94.38%, 0); }
+  95.455%, 100%   { transform: translate3d(0, 0, 0); }
 }
 
 /* entrance */
@@ -826,6 +862,7 @@ h1, h2, h3, h4 {
   .screen-img img, .w-shot img, .pcard-shot img { transform: none !important; }
   .rv-on [data-rv] > * { opacity: 1 !important; transform: none !important; }
   .laptop, .phone-dev { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .lap-screen img, .ph-screen img { animation: none !important; transform: none !important; }
 }
 
 .legal p a { display: inline-flex; align-items: center; min-height: 44px;
@@ -886,11 +923,11 @@ h1, h2, h3, h4 {
 
       <div class="devices" data-devices>
         <div class="laptop" data-dev="lap">
-          <div class="lap-screen"><picture><source type="image/avif" srcset="/myndir/anastasia-800.avif 800w, /myndir/anastasia-1600.avif 1600w" sizes="(min-width: 1040px) 620px, 92vw"><source type="image/webp" srcset="/myndir/anastasia-800.webp 800w, /myndir/anastasia-1600.webp 1600w" sizes="(min-width: 1040px) 620px, 92vw"><img src="/myndir/anastasia-1600.jpg" srcset="/myndir/anastasia-800.jpg 800w, /myndir/anastasia-1600.jpg 1600w" sizes="(min-width: 1040px) 620px, 92vw" alt="Anastasia Beauty Studio on a laptop and a phone" width="1600" height="1082" loading="eager" fetchpriority="high" decoding="async"></picture></div>
+          <div class="lap-screen"><picture><source type="image/avif" srcset="/myndir/ana-scroll-700.avif 700w, /myndir/ana-scroll-1240.avif 1240w" sizes="(min-width: 980px) 620px, 92vw"><source type="image/webp" srcset="/myndir/ana-scroll-700.webp 700w, /myndir/ana-scroll-1240.webp 1240w" sizes="(min-width: 980px) 620px, 92vw"><img src="/myndir/ana-scroll-1240.jpg" srcset="/myndir/ana-scroll-700.jpg 700w, /myndir/ana-scroll-1240.jpg 1240w" sizes="(min-width: 980px) 620px, 92vw" alt="Anastasia Beauty Studio on a laptop and a phone" width="1240" height="9906" loading="eager" fetchpriority="high" decoding="async"></picture></div>
           <div class="lap-foot"><span></span></div>
         </div>
         <div class="phone-dev" data-dev="ph" aria-hidden="true">
-          <div class="ph-screen"><picture><source type="image/avif" srcset="/myndir/anastasia-simi-430.avif 430w, /myndir/anastasia-simi-860.avif 860w" sizes="188px"><source type="image/webp" srcset="/myndir/anastasia-simi-430.webp 430w, /myndir/anastasia-simi-860.webp 860w" sizes="188px"><img src="/myndir/anastasia-simi-860.jpg" srcset="/myndir/anastasia-simi-430.jpg 430w, /myndir/anastasia-simi-860.jpg 860w" sizes="188px" alt="" width="430" height="931" loading="eager" fetchpriority="high" decoding="async"></picture></div>
+          <div class="ph-screen"><picture><source type="image/avif" srcset="/myndir/ana-scroll-simi-260.avif 260w, /myndir/ana-scroll-simi-400.avif 400w" sizes="(min-width: 980px) 130px, 22vw"><source type="image/webp" srcset="/myndir/ana-scroll-simi-260.webp 260w, /myndir/ana-scroll-simi-400.webp 400w" sizes="(min-width: 980px) 130px, 22vw"><img src="/myndir/ana-scroll-simi-400.jpg" srcset="/myndir/ana-scroll-simi-260.jpg 260w, /myndir/ana-scroll-simi-400.jpg 400w" sizes="(min-width: 980px) 130px, 22vw" alt="" width="400" height="15625" loading="eager" fetchpriority="high" decoding="async"></picture></div>
         </div>
       </div>
       </div>
@@ -1138,6 +1175,14 @@ h1, h2, h3, h4 {
     d.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && hdr.classList.contains("open")) { open(false); burger.focus(); }
     });
+  }
+
+  /* ---- Stop the screen scroll while the tab is hidden ---- */
+  var stageEl = d.querySelector("[data-devices]");
+  if (stageEl) {
+    var sync = function () { stageEl.classList.toggle("paused", d.hidden); };
+    d.addEventListener("visibilitychange", sync);
+    sync();
   }
 
   /* ---- Section reveals, then get out of the way ---- */
