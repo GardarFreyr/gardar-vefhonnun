@@ -560,13 +560,13 @@ h1, h2, h3, h4 {
 
 /* ---------- Hero ---------- */
 
-.hero-split { padding-block: clamp(34px, 4.4vw, 76px) clamp(34px, 4.4vw, 72px); overflow: hidden; }
+.hero-split { padding-block: clamp(20px, 2.1vw, 34px) clamp(16px, 1.8vw, 26px); overflow: hidden; }
 .hero-grid { display: grid; gap: clamp(40px, 5vw, 56px); align-items: center; }
 .hero-copy .t-xl { margin-top: 22px; font-size: clamp(2.7rem, 6.9vw, 5.25rem); line-height: 0.9; letter-spacing: -0.048em; }
-.hero-copy .lede { margin-top: clamp(18px, 2vw, 26px); max-width: 30rem; font-size: clamp(1rem, 1.15vw, 1.08rem); }
-.hero-copy .hero-cta { margin-top: clamp(26px, 3vw, 36px); }
+.hero-copy .lede { margin-top: clamp(15px, 1.7vw, 22px); max-width: 30rem; font-size: clamp(1rem, 1.15vw, 1.08rem); }
+.hero-copy .hero-cta { margin-top: clamp(22px, 2.5vw, 31px); }
 
-.bullets { display: grid; gap: 22px; margin-top: clamp(30px, 3.4vw, 44px); padding-top: clamp(22px, 2.4vw, 30px); border-top: 1px solid var(--rule); }
+.bullets { display: grid; gap: 22px; margin-top: clamp(24px, 2.6vw, 36px); padding-top: clamp(18px, 1.9vw, 25px); border-top: 1px solid var(--rule); }
 .b-top { display: flex; align-items: center; gap: 10px; }
 .b-icon { width: 20px; height: 20px; flex: none; color: var(--ink); }
 .bullets .n { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; color: var(--accent-deep); }
@@ -667,7 +667,7 @@ h1, h2, h3, h4 {
   width: 34%; height: 6px; background: #101010; border-radius: 0 0 5px 5px; z-index: 1;
 }
 @media (min-width: 980px) {
-  .devices { width: 100%; margin-left: auto; padding-bottom: 7%; }
+  .devices { width: 94%; margin-left: auto; padding-bottom: 7%; }
   .laptop { width: 86%; }
   .phone-dev { right: 8%; }
 }
@@ -730,7 +730,7 @@ h1, h2, h3, h4 {
 
 /* ---------- Services ---------- */
 
-.svc { background: var(--light); border-block: 1px solid var(--rule); padding-block: clamp(54px, 7vw, 100px); }
+.svc { background: var(--light); border-block: 1px solid var(--rule); padding-block: clamp(54px, 7vw, 100px) clamp(46px, 5.6vw, 82px); }
 .svc-head { display: grid; gap: 22px; margin-bottom: clamp(34px, 4.4vw, 56px); }
 .svc-head .t-md { margin-top: 14px; }
 .svc-head .lede { max-width: 30rem; }
@@ -762,23 +762,28 @@ h1, h2, h3, h4 {
 
 .cta-copy .avail { margin-top: clamp(18px, 2vw, 24px); }
 
-.cta-visual {
-  position: relative; background: var(--ink); border-radius: var(--r-lg);
-  min-height: 240px; padding: clamp(28px, 3.4vw, 44px);
-  display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; overflow: hidden;
+.cta-steps {
+  background: var(--ink-2); border-radius: var(--r-lg);
+  padding: clamp(26px, 3vw, 40px) clamp(24px, 2.8vw, 38px);
+  display: flex; flex-direction: column; gap: clamp(20px, 2.2vw, 28px);
 }
-.cta-visual::before {
-  content: ""; position: absolute; inset: 0;
-  background-image: linear-gradient(var(--on-ink-rule) 1px, transparent 1px),
-                    linear-gradient(90deg, var(--on-ink-rule) 1px, transparent 1px);
-  background-size: 56px 56px; opacity: 0.5;
+.cta-steps .eyebrow { color: var(--on-ink-muted); }
+.cta-steps ol { list-style: none; display: grid; }
+.cta-steps li {
+  display: grid; grid-template-columns: 34px 1fr; align-items: baseline; gap: 14px;
+  padding: clamp(15px, 1.7vw, 20px) 0; border-top: 1px solid var(--on-ink-rule);
 }
-.cta-mark { position: relative; font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.6vw, 3rem); letter-spacing: -0.045em; color: var(--on-ink); line-height: 1; }
-.cta-line { position: relative; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(232, 229, 222, 0.64); }
-@media (min-width: 900px) { .cta-visual { min-height: 330px; } }
+.cta-steps li:first-child { border-top: 0; padding-top: 0; }
+.cta-steps li:last-child { padding-bottom: 0; }
+.cta-steps .n { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.15em; color: var(--accent); }
+.cta-steps li > span:last-child {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.18rem); letter-spacing: -0.028em; line-height: 1.25;
+  color: var(--on-ink);
+}
 
 /* ---- Work on warm beige ---- */
-.work-sec { background: var(--bg); border-top: 1px solid var(--rule); border-bottom: 0; padding-top: clamp(56px, 6.4vw, 96px); }
+.work-sec { background: var(--bg); border-top: 1px solid var(--rule); border-bottom: 0; padding-top: clamp(32px, 3.2vw, 50px); }
 .work-sec .pcard-shot { background: var(--light); border-color: var(--rule); }
 
 /* ---- Services on dark ---- */
@@ -795,7 +800,7 @@ h1, h2, h3, h4 {
 /* Dark bands: the bronze flips to its lighter tone and the eyebrow rule to the
    light one, since both are invisible otherwise. Removing the old homepage
    block took these with it. */
-.svc .dot, .dark .dot, .ftr .dot, .cta-visual .dot { color: var(--accent); }
+.svc .dot, .dark .dot, .ftr .dot, .cta-steps .dot { color: var(--accent); }
 .svc .eyebrow-dot::before, .dark .eyebrow-dot::before { background: var(--on-ink); opacity: 0.5; }
 @media (min-width: 1000px) {
   .svc-grid { border-bottom-color: rgba(232, 229, 222, 0.12); }
@@ -1020,9 +1025,13 @@ h1, h2, h3, h4 {
         </div>
         <span class="avail"><i aria-hidden="true"></i>Available for new projects</span>
       </div>
-      <div class="cta-visual" aria-hidden="true">
-        <span class="cta-mark">Garðar<span class="dot">.</span></span>
-        <span class="cta-line">Websites for Icelandic businesses.</span>
+      <div class="cta-steps">
+        <span class="eyebrow">No obligation</span>
+        <ol>
+          <li><span class="n">01</span><span>You tell me about the business</span></li>
+          <li><span class="n">02</span><span>I put together a preview</span></li>
+          <li><span class="n">03</span><span>You decide whether we continue</span></li>
+        </ol>
       </div>
     </div>
   </section>
