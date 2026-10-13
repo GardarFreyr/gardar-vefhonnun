@@ -572,30 +572,18 @@ h1, h2, h3, h4 {
 .hero-copy .lede { margin-top: clamp(15px, 1.7vw, 22px); max-width: 30rem; font-size: clamp(1rem, 1.15vw, 1.08rem); }
 .hero-copy .hero-cta { margin-top: clamp(22px, 2.5vw, 31px); }
 
-.bullets { display: grid; gap: 22px; margin-top: clamp(24px, 2.6vw, 36px); padding-top: clamp(18px, 1.9vw, 25px); border-top: 1px solid var(--rule); }
-.b-top { display: flex; align-items: center; gap: 10px; }
-.b-icon { width: 20px; height: 20px; flex: none; color: var(--text); }
-.bullets .n { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; color: var(--accent-deep); }
-.bullets .bt { font-family: var(--mono); font-weight: 500; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); margin-top: 11px; }
-.bullets .bd { color: var(--muted); font-size: 0.9rem; line-height: 1.5; margin-top: 7px; max-width: 17rem; }
-@media (min-width: 560px) {
-  .bullets { grid-template-columns: repeat(3, 1fr); gap: 0 clamp(20px, 2.4vw, 34px); }
-}
-/* mobile order: copy, devices, then the three points */
+/* mobile order: copy, then devices */
 .hero-grid > .hero-copy { order: 1; }
 .hero-grid > .hero-stage { order: 2; }
-.hero-grid > .bullets { order: 3; }
 @media (min-width: 980px) {
   .hero-grid {
     grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
-    grid-template-rows: auto auto;
     gap: clamp(14px, 1.6vw, 20px) clamp(26px, 2.4vw, 42px);
     align-items: start;
   }
   .hero-grid > .hero-copy { grid-area: 1 / 1; }
-  .hero-grid > .bullets { grid-area: 2 / 1; margin-top: 0; }
   .hero-grid > .hero-stage {
-    grid-area: 1 / 2 / 3 / 3; align-self: center; margin-top: -20px;
+    grid-area: 1 / 2; align-self: center; margin-top: -20px;
     /* bleed past the container to the viewport edge */
     margin-right: calc(-1 * (max(0px, (100vw - var(--w)) / 2) + var(--pad)));
   }
